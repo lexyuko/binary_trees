@@ -18,8 +18,8 @@ int check_sub_tree_Left(const binary_tree_t *node, int max)
 	{
 		if (node->n >= max)
 			return (0);
-		l = check_sub_tree_l(node->l, max);
-		r = check_sub_tree_l(node->r, max);
+		l = check_sub_tree_l(node->left, max);
+		r = check_sub_tree_l(node->right, max);
 		if (l == r && l == 1)
 			return (1);
 		return (0);
@@ -44,8 +44,8 @@ int check_sub_tree_right(const binary_tree_t *node, int min)
 	{
 		if (node->n <= min)
 			return (0);
-		l = check_sub_tree_r(node->l, min);
-		r = check_sub_tree_r(node->r, min);
+		l = check_sub_tree_r(node->left, min);
+		r = check_sub_tree_r(node->right, min);
 		if (l == r && l == 1)
 			return (1);
 		return (0);
@@ -66,23 +66,23 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	if (tree->l && tree->l->n > tree->n)
+	if (tree->left && tree->left->n > tree->n)
 		return (0);
-	if (tree->r && tree->r->n < tree->n)
+	if (tree->right && tree->right->n < tree->n)
 		return (0);
-	if (tree->l && tree->l->n < tree->n)
+	if (tree->left && tree->left->n < tree->n)
 	{
-		var = check_sub_tree_l(tree->l, tree->n);
+		var = check_sub_tree_left(tree->left, tree->n);
 		if (var == 0)
 			return (0);
-		l = binary_tree_is_bst(tree->l);
+		l = binary_tree_is_bst(tree->left);
 	}
-	if (tree->r && tree->r->n > tree->n)
+	if (tree->right && tree->right->n > tree->n)
 	{
-		var = check_sub_tree_r(tree->r, tree->n);
+		var = check_sub_tree_right(tree->right, tree->n);
 		if (var == 0)
 			return (0);
-		r = binary_tree_is_bst(tree->r);
+		r = binary_tree_is_bst(tree->right);
 	}
 	if (l != 2 || r != 2)
 	{
