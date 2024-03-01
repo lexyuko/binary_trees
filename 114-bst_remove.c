@@ -15,7 +15,7 @@ int successor(bst_t *node)
 	else
 	{
 		left = successor(node->left);
-		if (left == 0)
+		if (l == 0)
 		{
 			return (node->n);
 		}
@@ -32,11 +32,11 @@ int successor(bst_t *node)
  */
 int two_children(bst_t *root)
 {
-	int new_value = 0;
+	int n_value = 0;
 
-	new_value = successor(root->right);
-	root->n = new_value;
-	return (new_value);
+	n_value = successor(root->right);
+	root->n = n_value;
+	return (n_value);
 }
 /**
  *remove_type - function that removes a node depending of its children
