@@ -21,13 +21,13 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		return ((binary_tree_t *)first);
 	}
 
-	x = first->xarent;
-	y = second->xarent;
-	if (x == NULL || first == y || (!x->xarent && y))
+	x = first->parent;
+	y = second->parent;
+	if (x == NULL || first == y || (!x->parent && y))
 	{
 		return (binary_trees_ancestor(first, y));
 	}
-	else if (y == NULL || x == second || (!y->xarent && x))
+	else if (y == NULL || x == second || (!y->parent && x))
 	{
 		return (binary_trees_ancestor(x, second));
 	}
