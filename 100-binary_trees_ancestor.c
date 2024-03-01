@@ -10,7 +10,7 @@
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				     const binary_tree_t *second)
 {
-	binary_tree_t *p, *q;
+	binary_tree_t *x, *y;
 
 	if (first == NULL || second == NULL)
 	{
@@ -21,15 +21,15 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		return ((binary_tree_t *)first);
 	}
 
-	p = first->parent;
-	q = second->parent;
-	if (p == NULL || first == q || (!p->parent && q))
+	x = first->xarent;
+	y = second->xarent;
+	if (x == NULL || first == y || (!x->xarent && y))
 	{
-		return (binary_trees_ancestor(first, q));
+		return (binary_trees_ancestor(first, y));
 	}
-	else if (q == NULL || p == second || (!q->parent && p))
+	else if (y == NULL || x == second || (!y->xarent && x))
 	{
-		return (binary_trees_ancestor(p, second));
+		return (binary_trees_ancestor(x, second));
 	}
-	return (binary_trees_ancestor(p, q));
+	return (binary_trees_ancestor(x, y));
 }
