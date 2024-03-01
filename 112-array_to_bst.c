@@ -7,7 +7,7 @@
  */
 bst_t *array_to_bst(int *array, size_t size)
 {
-	size_t i = 0;
+	size_t x = 0;
 	bst_t *root;
 
 	root = NULL;
@@ -15,15 +15,15 @@ bst_t *array_to_bst(int *array, size_t size)
 	{
 		return (NULL);
 	}
-	for (; i < size; i++)
+	for (; x < size; x++)
 	{
-		if (i == 0)
+		if (x == 0)
 		{
-			bst_insert(&root, array[i]);
+			bst_insert(&root, array[x]);
 		}
 		else
 		{
-			bst_insert(&root, array[i]);
+			bst_insert(&root, array[x]);
 		}
 	}
 	return (root);
